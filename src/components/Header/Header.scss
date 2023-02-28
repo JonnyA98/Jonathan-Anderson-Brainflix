@@ -1,8 +1,20 @@
+@use "../../styles/partials/variabls.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+
+  @include tablet {
+    flex-direction: row;
+  }
+
+  @include desktop {
+    width: 1020px;
+    margin: 0 auto;
+  }
 
   &__logo {
     height: 2.5rem;
@@ -22,18 +34,35 @@
     background-color: rgba(225, 225, 225, 0.5);
     width: 90%;
     margin: 0 1rem;
+    @include tablet {
+      height: 4rem;
+    }
   }
 
   &__search-icon {
     height: 3.6rem;
     width: 3.6rem;
     border-radius: 50%;
+    @include tablet {
+      display: none;
+    }
+
+    &--2 {
+      display: none;
+      @include tablet {
+        display: block;
+        margin: 0 1rem;
+      }
+    }
   }
 
   &__upload-button {
-    width: 100%;
+    text-transform: uppercase;
+    width: 90%;
     background: url(../../assets/icons/upload.svg) no-repeat 1rem 50%;
-    background-color: blue;
-    color: white;
+    background-color: $primary-two;
+    color: $primary-four;
+    margin: 1rem auto;
+    height: 4rem;
   }
 }

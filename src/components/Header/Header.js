@@ -22,6 +22,11 @@ const Header = () => {
           />
         </div>
         <button className="header__upload-button">Upload</button>
+        <img
+          className="header__search-icon header__search-icon--2"
+          src={avatar}
+          alt="Mohan-Muruge-2"
+        />
       </header>
     </>
   );
