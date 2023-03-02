@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header/Header";
 import CurrentVideo from "./components/CurrentVideo/CurrentVideo";
+import VideoDescription from "./components/VideoDescription/VideoDescription";
 import videodetails from "./assets/data/video-details.json";
 
 import "./styles/App.scss";
@@ -12,6 +13,7 @@ function App() {
     <>
       <Header />
       <CurrentVideo currentvideo={video} />
+      <VideoDescription currentdescription={video} />
     </>
   );
 }
