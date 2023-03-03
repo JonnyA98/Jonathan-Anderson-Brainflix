@@ -1,8 +1,8 @@
 import "./SmallVideo.scss";
 
-const SmallVideo = ({ picture, title, name }) => {
+const SmallVideo = ({ picture, title, name, clickHandler }) => {
   return (
-    <div>
+    <div onClick={clickHandler}>
       <img className="small-video__image" src={picture} alt={name} />
       <div>
         <h3>{title}</h3>
