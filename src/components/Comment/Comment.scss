@@ -1,0 +1,48 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variabls" as *;
+
+.comments {
+  &__comment {
+    display: flex;
+    border-top: solid 0.1rem $secondary-three;
+    border-bottom: solid 0.1rem $secondary-three;
+    margin: auto;
+    @include tablet {
+      width: 90%;
+    }
+  }
+
+  &__icon {
+    background-color: $secondary-three;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+
+  &__text {
+    width: 80%;
+  }
+
+  &__first-line {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+  }
+
+  &__date {
+    color: $primary-three;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+
+  &__copy {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+}

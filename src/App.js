@@ -20,14 +20,6 @@ function App() {
 
   const videoHandler = (id) => {
     console.log(id);
-    // event.prevertDefault();
-    // console.log(event);
-
-    // i = event.target.value;
-
-    // const newVideo = videodetails[i];
-
-    // setVideo([...video, newVideo]);
 
     // return video object from details list where id matches
     const video = VideoDetailsList.find((video) => {

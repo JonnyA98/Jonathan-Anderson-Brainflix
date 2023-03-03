@@ -2,8 +2,9 @@ import "./VideoDescription.scss";
 
 const VideoDescription = ({ currentdescription }) => {
   const timestamp = currentdescription.timestamp;
-  console.log(timestamp);
   const date = new Date(timestamp).toLocaleDateString();
+
+  console.log(date);
 
   return (
     <div className="vid-desc">
