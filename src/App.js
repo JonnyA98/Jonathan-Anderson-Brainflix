@@ -5,6 +5,7 @@ import VideoDescription from "./components/VideoDescription/VideoDescription";
 import videodetails from "./assets/data/video-details.json";
 import AddComment from "./components/AddComment/AddComment";
 import Comments from "./components/Comments/Comments";
+import VideoList from "./components/VideoList/VideoList";
 
 import "./styles/App.scss";
 
@@ -18,6 +19,7 @@ function App() {
       <VideoDescription currentdescription={video} />
       <AddComment />
       <Comments currentcomments={video} />
+      <VideoList currentvideo={video} />
     </>
   );
 }
