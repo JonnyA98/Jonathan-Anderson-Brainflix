@@ -35,14 +35,18 @@ function App() {
     <>
       <Header />
       <CurrentVideo currentvideo={video} />
-      <VideoDescription currentdescription={video} />
-      <AddComment />
-      <Comments currentcomments={video} />
-      <VideoList
-        videoSmallList={videoSmallList}
-        videoHandler={videoHandler}
-        currentvideo={video}
-      />
+      <div className="app__wrapper">
+        <div className="app__vid-desc-wrapper">
+          <VideoDescription currentdescription={video} />
+          <AddComment />
+          <Comments currentcomments={video} />
+        </div>
+        <VideoList
+          videoSmallList={videoSmallList}
+          videoHandler={videoHandler}
+          currentvideo={video}
+        />
+      </div>
     </>
   );
 }

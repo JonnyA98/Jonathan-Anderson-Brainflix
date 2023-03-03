@@ -1,4 +1,20 @@
-@use "./partials/mixins.scss";
-@use "./partials/resets.scss";
-@use "./partials/typography.scss";
-@use "./partials/variabls.scss";
+@use "./partials/mixins" as *;
+@use "./partials/resets" as *;
+@use "./partials/typography" as *;
+@use "./partials/variabls" as *;
+
+.app {
+  &__wrapper {
+    @include desktop {
+      display: flex;
+      width: 1020px;
+      margin: 0 auto;
+    }
+  }
+
+  &__vid-desc-wrapper {
+    @include desktop {
+      width: 100%;
+    }
+  }
+}

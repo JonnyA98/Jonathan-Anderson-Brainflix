@@ -6,6 +6,11 @@
     width: 50%;
   }
 
+  @include desktop {
+    margin-top: 4rem;
+    border-left: solid 0.1rem $secondary-three;
+  }
+
   &__header {
     text-transform: uppercase;
     color: $primary-three;
