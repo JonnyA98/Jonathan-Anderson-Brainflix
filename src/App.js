@@ -3,6 +3,8 @@ import Header from "./components/Header/Header";
 import CurrentVideo from "./components/CurrentVideo/CurrentVideo";
 import VideoDescription from "./components/VideoDescription/VideoDescription";
 import videodetails from "./assets/data/video-details.json";
+import AddComment from "./components/AddComment/AddComment";
+import Comments from "./components/Comments/Comments";
 
 import "./styles/App.scss";
 
@@ -14,6 +16,8 @@ function App() {
       <Header />
       <CurrentVideo currentvideo={video} />
       <VideoDescription currentdescription={video} />
+      <AddComment />
+      <Comments currentcomments={video} />
     </>
   );
 }
