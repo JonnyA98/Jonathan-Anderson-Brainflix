@@ -1,0 +1,17 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variabls" as *;
+
+.video-list {
+  @include tablet {
+    width: 50%;
+  }
+
+  &__header {
+    text-transform: uppercase;
+    color: $primary-three;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    font-size: 400;
+    margin: 1rem;
+  }
+}

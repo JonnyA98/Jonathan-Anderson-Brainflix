@@ -1,4 +1,5 @@
 import SmallVideo from "../SmallVideo/SmallVideo";
+import "./VideoList.scss";
 
 const VideoList = ({ videoSmallList, currentvideo, videoHandler }) => {
   let currentVideoList = [];
@@ -8,7 +9,8 @@ const VideoList = ({ videoSmallList, currentvideo, videoHandler }) => {
     }
   });
   return (
-    <div>
+    <div className="video-list">
+      <h3 className="video-list__header">Next Videos</h3>
       {currentVideoList.map((smallVideo) => (
         <SmallVideo
           clickHandler={() => videoHandler(smallVideo.id)}
