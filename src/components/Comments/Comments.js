@@ -5,7 +5,7 @@ const Comments = ({ currentcomments }) => {
   const commentsArray = currentcomments.comments;
   console.log(commentsArray);
   return (
-    <div>
+    <div className="comments">
       {commentsArray.map((comment) => (
         <Comment
           key={comment.id}

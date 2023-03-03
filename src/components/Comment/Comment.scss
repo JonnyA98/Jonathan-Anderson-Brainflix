@@ -2,6 +2,9 @@
 @use "../../styles/partials/variabls" as *;
 
 .comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &__comment {
     display: flex;
     border-top: solid 0.1rem $secondary-three;
@@ -22,6 +25,9 @@
 
   &__text {
     width: 80%;
+    @include tablet {
+      width: 100%;
+    }
   }
 
   &__first-line {
@@ -33,16 +39,30 @@
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.8rem;
+    margin-bottom: 0;
+    @include tablet {
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
   }
 
   &__date {
     color: $primary-three;
     font-size: 1.3rem;
     line-height: 1.8rem;
+    @include tablet {
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
   }
 
   &__copy {
     font-size: 1.3rem;
     line-height: 1.8rem;
+    margin-top: 0;
+    @include tablet {
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
   }
 }
