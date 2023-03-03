@@ -8,6 +8,7 @@ const Comments = ({ currentcomments }) => {
     <div>
       {commentsArray.map((comment) => (
         <Comment
+          key={comment.id}
           name={comment.name}
           date={comment.timestamp}
           comment={comment.comment}

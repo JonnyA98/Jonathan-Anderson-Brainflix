@@ -11,8 +11,28 @@ import "./styles/App.scss";
 
 function App() {
   const [video, setVideo] = useState(videodetails[0]);
+  const [VideoDetailsList, setVideoList] = useState(videodetails);
 
-  console.log(video);
+  const videoHandler = (id) => {
+    console.log(id);
+    // event.prevertDefault();
+    // console.log(event);
+
+    // i = event.target.value;
+
+    // const newVideo = videodetails[i];
+
+    // setVideo([...video, newVideo]);
+
+    const video = VideoDetailsList.find((video) => {
+      if (video.id === id) {
+        return video;
+      }
+    });
+
+    setVideo(video);
+  };
+
   return (
     <>
       <Header />
@@ -20,7 +40,7 @@ function App() {
       <VideoDescription currentdescription={video} />
       <AddComment />
       <Comments currentcomments={video} />
-      <VideoList currentvideo={video} />
+      <VideoList videoHandler={videoHandler} currentvideo={video} />
     </>
   );
 }

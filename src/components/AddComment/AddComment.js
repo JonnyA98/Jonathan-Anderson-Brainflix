@@ -3,7 +3,7 @@ import avatar from "../../assets/images/Mohan-muruge.jpg";
 
 const AddComment = () => {
   return (
-    <div className="add-comment">
+    <form className="add-comment">
       <img className="add-comment__icon" src={avatar} alt="Mohan Muruge" />
       <div className="add-comment__big-wrapper">
         <div className="add-comment__wrapper">
@@ -19,7 +19,7 @@ const AddComment = () => {
         </div>
         <button className="add-comment__button">Add Comment</button>
       </div>
-    </div>
+    </form>
   );
 };
 

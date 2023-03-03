@@ -1,7 +1,7 @@
 import videos from "../../assets/data/videos.json";
 import SmallVideo from "../SmallVideo/SmallVideo";
 
-const VideoList = ({ currentvideo }) => {
+const VideoList = ({ currentvideo, videoHandler }) => {
   let currentVideoList = [];
   videos.forEach((video) => {
     if (video.id !== currentvideo.id) {
@@ -13,6 +13,7 @@ const VideoList = ({ currentvideo }) => {
     <div>
       {currentVideoList.map((smallVideo) => (
         <SmallVideo
+          onClick={() => videoHandler(smallVideo.id)}
           picture={smallVideo.image}
           title={smallVideo.title}
           name={smallVideo.channel}
