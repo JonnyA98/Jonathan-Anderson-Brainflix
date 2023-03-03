@@ -11,6 +11,7 @@ import "./styles/App.scss";
 
 function App() {
   const [video, setVideo] = useState(videodetails[0]);
+
   console.log(video);
   return (
     <>
