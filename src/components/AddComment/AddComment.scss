@@ -6,7 +6,7 @@
   margin: 1rem;
   width: 90%;
   @include tablet {
-    justify-content: space-around;
+    width: 100%;
   }
   &__icon {
     height: 3.6rem;
@@ -21,7 +21,16 @@
     @include tablet {
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: space-around;
+      position: relative;
+      width: 90%;
+    }
+  }
+
+  &__wrapper {
+    @include tablet {
+      position: relative;
+      bottom: 2rem;
     }
   }
 
@@ -37,6 +46,10 @@
     background-color: rgba($primary-three, 0.1);
     border-radius: 2%;
     width: 100%;
+    @include tablet {
+      height: 5rem;
+      width: 150%;
+    }
   }
 
   &__button {
@@ -47,5 +60,15 @@
     color: $primary-four;
     margin: 1rem auto;
     height: 4rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    &:hover {
+      background-color: $secondary-two;
+    }
+    @include tablet {
+      min-width: 15rem;
+      width: 30%;
+      margin: 0;
+    }
   }
 }

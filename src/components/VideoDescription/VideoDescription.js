@@ -3,8 +3,7 @@ import "./VideoDescription.scss";
 const VideoDescription = ({ currentdescription }) => {
   const timestamp = currentdescription.timestamp;
   const date = new Date(timestamp).toLocaleDateString();
-
-  console.log(date);
+  const numberOfComments = currentdescription.comments.length;
 
   return (
     <div className="vid-desc">
@@ -22,6 +21,7 @@ const VideoDescription = ({ currentdescription }) => {
       <div className="vid-desc__description">
         {currentdescription.description}
       </div>
+      <h3 className="vid-desc__num-comments">{`${numberOfComments} Comments`}</h3>
     </div>
   );
 };
