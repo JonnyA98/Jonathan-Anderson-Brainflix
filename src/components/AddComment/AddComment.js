@@ -1,7 +1,8 @@
 import "./AddComment.scss";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 
-const AddComment = () => {
+const AddComment = ({ text, changeText }) => {
+  console.log(text);
   return (
     <form className="add-comment">
       <img className="add-comment__icon" src={avatar} alt="Mohan Muruge" />
@@ -13,9 +14,9 @@ const AddComment = () => {
             name="post"
             cols="30"
             rows="5"
-          >
-            Add a new Comment
-          </textarea>
+            value={text}
+            onChange={(e) => changeText(e.target.value)}
+          ></textarea>
         </div>
         <button className="add-comment__button">Add Comment</button>
       </div>

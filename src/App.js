@@ -12,6 +12,13 @@ import "./styles/App.scss";
 
 function App() {
   // current video
+  const defaultText = "Add a new comment";
+  const [text, setText] = useState(defaultText);
+
+  const changeText = (newText) => {
+    setText(newText);
+  };
+
   const [video, setVideo] = useState(videodetails[0]);
 
   // list of all video details
@@ -19,8 +26,6 @@ function App() {
   const [videoSmallList, setVideoSmallList] = useState(videoSmallListData);
 
   const videoHandler = (id) => {
-    console.log(id);
-
     // return video object from details list where id matches
     const video = VideoDetailsList.find((video) => {
       if (video.id === id) {
@@ -38,7 +43,7 @@ function App() {
       <div className="app__wrapper">
         <div className="app__vid-desc-wrapper">
           <VideoDescription currentdescription={video} />
-          <AddComment />
+          <AddComment text={text} changeText={changeText} />
           <Comments currentcomments={video} />
         </div>
         <VideoList
