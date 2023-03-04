@@ -2,9 +2,11 @@ import "./CurrentVideo.scss";
 
 const CurrentVideo = ({ currentvideo }) => {
   return (
-    <video controls className="video" poster={currentvideo.image}>
-      Your browser does not support the video tag.
-    </video>
+    <div className="video__wrapper">
+      <video controls className="video__poster" poster={currentvideo.image}>
+        Your browser does not support the video tag.
+      </video>
+    </div>
   );
 };
 

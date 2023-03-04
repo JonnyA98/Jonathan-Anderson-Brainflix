@@ -2,11 +2,22 @@
 @use "../../styles/partials/variabls" as *;
 
 .video {
-  display: flex;
-  width: 100%;
-  margin: auto;
-  @include desktop {
-    width: 1020px;
-    margin: 0 auto;
+  &__wrapper {
+    @include tablet {
+      display: block;
+      background-color: black;
+    }
+  }
+  &__poster {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    @include tablet {
+      width: 90%;
+    }
+    @include desktop {
+      width: 1020px;
+      margin: 0 auto;
+    }
   }
 }
