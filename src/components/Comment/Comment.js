@@ -1,6 +1,6 @@
 import "./Comment.scss";
 
-const Comment = ({ key, comment, name, date }) => {
+const Comment = ({ comment, name, date }) => {
   const newDate = new Date(date);
   const usefulDate = newDate.toLocaleDateString();
 

@@ -14,6 +14,7 @@ const VideoList = ({ videoSmallList, currentvideo, videoHandler }) => {
       {currentVideoList.map((smallVideo) => (
         <SmallVideo
           clickHandler={() => videoHandler(smallVideo.id)}
+          key={smallVideo.id}
           picture={smallVideo.image}
           title={smallVideo.title}
           name={smallVideo.channel}

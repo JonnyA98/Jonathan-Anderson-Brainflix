@@ -2,7 +2,6 @@ import "./AddComment.scss";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 
 const AddComment = ({ text, changeText }) => {
-  console.log(text);
   return (
     <form className="add-comment">
       <img className="add-comment__icon" src={avatar} alt="Mohan Muruge" />
