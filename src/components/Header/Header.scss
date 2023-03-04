@@ -69,5 +69,8 @@
     margin: 1rem auto;
     height: 4rem;
     cursor: pointer;
+    &:hover {
+      background-color: $secondary-two;
+    }
   }
 }
