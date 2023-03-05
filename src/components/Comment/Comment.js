@@ -1,8 +1,12 @@
 import "./Comment.scss";
+import moment from "moment";
+moment().format();
 
 const Comment = ({ comment, name, date }) => {
   const newDate = new Date(date);
   const usefulDate = newDate.toLocaleDateString();
+  const momentTest = moment(newDate, "YYYYMMDD").fromNow();
+  console.log(momentTest);
 
   return (
     <div className="comments__comment">
@@ -10,7 +14,7 @@ const Comment = ({ comment, name, date }) => {
       <div className="comments__text">
         <div className="comments__first-line">
           <h3 className="comments__name">{name}</h3>
-          <p className="comments__date">{usefulDate}</p>
+          <p className="comments__date">{momentTest}</p>
         </div>
         <p className="comments__copy">{comment}</p>
       </div>
