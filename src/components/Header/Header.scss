@@ -69,8 +69,19 @@
     margin: 1rem auto;
     height: 4rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     &:hover {
       background-color: $secondary-two;
     }
+  }
+
+  &__button-text {
+    color: $primary-four;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 400;
   }
 }
