@@ -1,7 +1,8 @@
 import SmallVideo from "../SmallVideo/SmallVideo";
+import { Link } from "react-router-dom";
 import "./VideoList.scss";
 
-const VideoList = ({ videoSmallList, currentvideo, videoHandler }) => {
+const VideoList = ({ videoSmallList, currentvideo }) => {
   let currentVideoList = [];
   videoSmallList.forEach((video) => {
     if (video.id !== currentvideo.id) {
@@ -12,13 +13,17 @@ const VideoList = ({ videoSmallList, currentvideo, videoHandler }) => {
     <div className="video-list">
       <h3 className="video-list__header">Next Videos</h3>
       {currentVideoList.map((smallVideo) => (
-        <SmallVideo
-          clickHandler={() => videoHandler(smallVideo.id)}
+        <Link
+          className="video-list__link"
+          to={`/videos/${smallVideo.id}`}
           key={smallVideo.id}
-          picture={smallVideo.image}
-          title={smallVideo.title}
-          name={smallVideo.channel}
-        />
+        >
+          <SmallVideo
+            picture={smallVideo.image}
+            title={smallVideo.title}
+            name={smallVideo.channel}
+          />
+        </Link>
       ))}
     </div>
   );

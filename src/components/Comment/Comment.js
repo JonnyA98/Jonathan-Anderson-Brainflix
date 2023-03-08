@@ -4,9 +4,8 @@ moment().format();
 
 const Comment = ({ comment, name, date }) => {
   const newDate = new Date(date);
-  const usefulDate = newDate.toLocaleDateString();
+
   const momentTest = moment(newDate, "YYYYMMDD").fromNow();
-  console.log(momentTest);
 
   return (
     <div className="comments__comment">

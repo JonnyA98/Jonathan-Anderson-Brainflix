@@ -19,4 +19,9 @@
     font-size: 400;
     margin: 1rem;
   }
+
+  &__link {
+    color: $primary-one;
+    text-decoration: none;
+  }
 }
