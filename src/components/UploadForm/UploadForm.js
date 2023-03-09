@@ -1,8 +1,9 @@
 import "./UploadForm.scss";
 import image from "../../assets/images/Upload-video-preview.jpg";
+import { Link } from "react-router-dom";
 const UploadForm = ({ description }) => {
   return (
-    <>
+    <div className="upload-form">
       <div className="upload-form__header-wrapper">
         <h1 className="upload-form__header">Upload Video</h1>
       </div>
@@ -25,7 +26,7 @@ const UploadForm = ({ description }) => {
             Add a video description
           </label>
           <textarea
-            className="upload-form__input"
+            className="upload-form__input upload-form__input--text-area"
             name="description"
             cols="30"
             rows="5"
@@ -34,10 +35,12 @@ const UploadForm = ({ description }) => {
         </div>
       </article>
       <div className="upload-form__publish-section">
-        <button class="upload-form__button">Upload</button>
-        <h3 class="upload-form__cancel">Cancel</h3>
+        <button className="upload-form__button">Publish</button>
+        <Link className="upload-form__cancel" to={`/`}>
+          <h3 className="upload-form__cancel-text">Cancel</h3>
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 

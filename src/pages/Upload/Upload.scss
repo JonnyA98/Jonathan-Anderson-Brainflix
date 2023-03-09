@@ -1,0 +1,6 @@
+@use "../../styles/partials/mixins" as *;
+.upload {
+  @include desktop {
+    width: 1020px;
+  }
+}

@@ -2,9 +2,17 @@
 @use "../../styles/partials/variabls" as *;
 
 .upload-form {
+  @include desktop {
+    width: 1020px;
+    margin: 0 auto;
+  }
   &__header-wrapper {
     border-top: solid 0.1rem $secondary-three;
     margin-top: 0;
+    @include tablet {
+      display: flex;
+      justify-content: center;
+    }
   }
   &__header {
     font-size: 2.4rem;
@@ -16,6 +24,9 @@
     @include tablet {
       font-size: 3.3rem;
       line-height: 4.4rem;
+      border-bottom: solid 0.1rem $secondary-three;
+      width: 90%;
+      padding-bottom: 1rem;
     }
   }
 
@@ -27,7 +38,7 @@
     margin-left: 1rem;
     margin-top: 1rem;
     @include tablet {
-      margin-right: 2rem;
+      margin-left: 4.5rem;
       font-size: 1.4rem;
       line-height: 2.2rem;
     }
@@ -35,11 +46,19 @@
   &__video {
     display: flex;
     flex-direction: column;
+    @include tablet {
+      justify-content: flex-start;
+    }
   }
   &__poster {
     aspect-ratio: 16/9;
     width: 90%;
     margin: 0 auto;
+    border-radius: 0.4rem;
+    @include tablet {
+      width: 40%;
+      margin-left: 4.5rem;
+    }
   }
 
   &__text {
@@ -52,9 +71,18 @@
     background-color: rgba($primary-three, 0.1);
     border-radius: 2%;
     width: 100%;
+    padding: 1rem;
+    border: solid 0.1rem $secondary-three;
     @include tablet {
       height: 5rem;
-      width: 150%;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    &--text-area {
+      @include tablet {
+        height: 10rem;
+      }
     }
   }
 
@@ -62,11 +90,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include tablet {
+      border-top: solid 0.1rem $secondary-three;
+      width: 90%;
+      margin: 0 auto;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
   }
   &__button {
     text-transform: uppercase;
     width: 90%;
-    background: url(../../assets/icons/add_comment.svg) no-repeat 1rem 50%;
+    background: url(../../assets/icons/upload.svg) no-repeat 1rem 50%;
     background-color: $primary-two;
     color: $primary-four;
     margin: 1rem auto;
@@ -79,7 +114,8 @@
     @include tablet {
       min-width: 15rem;
       width: 30%;
-      margin: 0;
+      margin: 2rem 0;
+      order: 1;
     }
   }
 
@@ -88,5 +124,9 @@
     margin: 1rem auto;
     font-size: 1.3rem;
     line-height: 1.8rem;
+    text-decoration: none;
+    @include tablet {
+      margin: 2rem 6rem;
+    }
   }
 }
