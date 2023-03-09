@@ -1,0 +1,92 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variabls" as *;
+
+.upload-form {
+  &__header-wrapper {
+    border-top: solid 0.1rem $secondary-three;
+    margin-top: 0;
+  }
+  &__header {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: 700;
+    margin-left: 1rem;
+    margin-bottom: 0;
+
+    @include tablet {
+      font-size: 3.3rem;
+      line-height: 4.4rem;
+    }
+  }
+
+  &__mini-header {
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.8rem;
+    color: $primary-three;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    @include tablet {
+      margin-right: 2rem;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+  }
+  &__video {
+    display: flex;
+    flex-direction: column;
+  }
+  &__poster {
+    aspect-ratio: 16/9;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  &__input {
+    background-color: rgba($primary-three, 0.1);
+    border-radius: 2%;
+    width: 100%;
+    @include tablet {
+      height: 5rem;
+      width: 150%;
+    }
+  }
+
+  &__publish-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__button {
+    text-transform: uppercase;
+    width: 90%;
+    background: url(../../assets/icons/add_comment.svg) no-repeat 1rem 50%;
+    background-color: $primary-two;
+    color: $primary-four;
+    margin: 1rem auto;
+    height: 4rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    &:hover {
+      background-color: $secondary-two;
+    }
+    @include tablet {
+      min-width: 15rem;
+      width: 30%;
+      margin: 0;
+    }
+  }
+
+  &__cancel {
+    color: $primary-two;
+    margin: 1rem auto;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+}
