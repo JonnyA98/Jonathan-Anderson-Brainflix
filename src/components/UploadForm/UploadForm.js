@@ -10,6 +10,8 @@ const UploadForm = ({
   uploadHandler,
   validationTitleClass,
   validationDescriptionClass,
+  titlePlaceholder,
+  descriptionPlaceholder,
 }) => {
   return (
     <form onSubmit={uploadHandler} className="upload-form">
@@ -29,7 +31,7 @@ const UploadForm = ({
             className={validationTitleClass}
             name="title"
             type="text"
-            placeholder="Add a title to your video"
+            placeholder={titlePlaceholder}
             value={title}
             onChange={(e) => titleHandler(e.target.value)}
           />
@@ -41,7 +43,7 @@ const UploadForm = ({
             name="description"
             cols="30"
             rows="5"
-            placeholder="Add a description to your video"
+            placeholder={descriptionPlaceholder}
             value={description}
             onChange={(e) => descriptionHandler(e.target.value)}
           ></textarea>
