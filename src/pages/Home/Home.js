@@ -38,7 +38,6 @@ const Home = () => {
 
   const addCommentHandle = async (event) => {
     event.preventDefault();
-    console.log("test");
 
     try {
       await axios
