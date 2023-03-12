@@ -8,6 +8,12 @@ import { useNavigate } from "react-router-dom";
 const Upload = () => {
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
+  const [titlePlaceholder, setTitlePlaceholder] = useState(
+    "Add a title to your video"
+  );
+  const [descriptionPlaceholder, setDescriptionPlaceholder] = useState(
+    "Add a description to your video"
+  );
   const [componentClass, setComponentClass] = useState(true);
   const [validationTitleClass, setValidationTitleClass] =
     useState("upload-form__input");
@@ -41,8 +47,8 @@ const Upload = () => {
       setValidationDescriptionClass(
         "upload-form__input upload-form__input--text-area upload-form__input--invalid"
       );
-      setTitle("Please add both a title and description");
-      setDescription("Please add both a title and description");
+      setTitlePlaceholder("Please add both a title and description");
+      setDescriptionPlaceholder("Please add both a title and description");
     }
   };
 
@@ -57,6 +63,8 @@ const Upload = () => {
         descriptionHandler={descriptionHandler}
         validationTitleClass={validationTitleClass}
         validationDescriptionClass={validationDescriptionClass}
+        titlePlaceholder={titlePlaceholder}
+        descriptionPlaceholder={descriptionPlaceholder}
       />
     );
   } else {
