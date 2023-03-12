@@ -53,6 +53,10 @@
       height: 5rem;
       width: 150%;
     }
+
+    &--invalid {
+      border: solid 0.1rem #d22d2d;
+    }
   }
 
   &__button {

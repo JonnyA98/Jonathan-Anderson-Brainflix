@@ -1,7 +1,13 @@
 import "./AddComment.scss";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 
-const AddComment = ({ addComment, text, changeText }) => {
+const AddComment = ({
+  addComment,
+  text,
+  changeText,
+  textPlaceholder,
+  textClass,
+}) => {
   return (
     <form className="add-comment" onSubmit={addComment}>
       <img className="add-comment__icon" src={avatar} alt="Mohan Muruge" />
@@ -9,12 +15,12 @@ const AddComment = ({ addComment, text, changeText }) => {
         <div className="add-comment__wrapper">
           <h3 className="add-comment__header">Join the Conversation</h3>
           <textarea
-            className="add-comment__text"
+            className={textClass}
             name="post"
             cols="30"
             rows="5"
             value={text}
-            placeholder="Add a new comment"
+            placeholder={textPlaceholder}
             onChange={(e) => changeText(e.target.value)}
           ></textarea>
         </div>

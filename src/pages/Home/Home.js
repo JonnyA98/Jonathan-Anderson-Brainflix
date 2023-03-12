@@ -13,6 +13,8 @@ const Home = () => {
   const key = "4cc34eef-8f4a-4587-ad97-0594e067e347";
 
   const [text, setText] = useState("");
+  const [textClass, setTextClass] = useState("add-comment__text");
+  const [textPlaceholder, setTextPlaceHolder] = useState("Add a new comment");
   const changeText = (newText) => {
     setText(newText);
   };
@@ -38,25 +40,30 @@ const Home = () => {
 
   const addCommentHandle = async (event) => {
     event.preventDefault();
-    console.log("test");
-
-    try {
-      await axios
-        .post(
-          `https://project-2-api.herokuapp.com/videos/${videoDetails.id}/comments?api_key=${key}`,
-          {
-            name: "Mohan Muruge",
-            comment: text,
-          }
-        )
-        .then(() => {
-          setText("");
-        })
-        .then(() => {
-          getVideoDetails(videoDetails.id);
-        });
-    } catch (error) {
-      console.log(error);
+    if (text) {
+      try {
+        await axios
+          .post(
+            `https://project-2-api.herokuapp.com/videos/${videoDetails.id}/comments?api_key=${key}`,
+            {
+              name: "Mohan Muruge",
+              comment: text,
+            }
+          )
+          .then(() => {
+            setText("");
+            setTextPlaceHolder("Add a new comment");
+            setTextClass("add-comment__text");
+          })
+          .then(() => {
+            getVideoDetails(videoDetails.id);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      setTextPlaceHolder("You can't leave this empty!");
+      setTextClass("add-comment__text add-comment__text--invalid");
     }
   };
 
@@ -96,6 +103,8 @@ const Home = () => {
             addComment={addCommentHandle}
             text={text}
             changeText={changeText}
+            textPlaceholder={textPlaceholder}
+            textClass={textClass}
           />
           <Comments currentcomments={videoDetails} />
         </div>
