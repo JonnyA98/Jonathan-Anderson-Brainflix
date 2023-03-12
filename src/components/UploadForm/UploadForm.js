@@ -8,6 +8,8 @@ const UploadForm = ({
   description,
   descriptionHandler,
   uploadHandler,
+  validationTitleClass,
+  validationDescriptionClass,
 }) => {
   return (
     <form onSubmit={uploadHandler} className="upload-form">
@@ -24,7 +26,7 @@ const UploadForm = ({
             Title your video
           </label>
           <input
-            className="upload-form__input"
+            className={validationTitleClass}
             name="title"
             type="text"
             placeholder="Add a title to your video"
@@ -35,7 +37,7 @@ const UploadForm = ({
             Add a video description
           </label>
           <textarea
-            className="upload-form__input upload-form__input--text-area"
+            className={validationDescriptionClass}
             name="description"
             cols="30"
             rows="5"

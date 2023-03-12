@@ -84,6 +84,11 @@
         height: 10rem;
       }
     }
+
+    &--invalid {
+      border: solid 0.1rem red;
+      background-color: rgba(red, 0.1);
+    }
   }
 
   &__publish-section {
