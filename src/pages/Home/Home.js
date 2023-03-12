@@ -12,8 +12,7 @@ import "./Home.scss";
 const Home = () => {
   const key = "4cc34eef-8f4a-4587-ad97-0594e067e347";
 
-  const defaultText = "Add a new comment";
-  const [text, setText] = useState(defaultText);
+  const [text, setText] = useState("");
   const changeText = (newText) => {
     setText(newText);
   };
@@ -25,7 +24,7 @@ const Home = () => {
 
   const getVideoList = async () => {
     const { data } = await axios.get(
-      `https://project-2-api.herokuapp.com/videos/?api_key=4cc34eef-8f4a-4587-ad97-0594e067e347`
+      `https://project-2-api.herokuapp.com/videos/?api_key=${key}`
     );
     setVideoSmallList(data);
   };
@@ -35,6 +34,30 @@ const Home = () => {
       `https://project-2-api.herokuapp.com/videos/${id}?api_key=${key}`
     );
     setvideoDetails(data);
+  };
+
+  const addCommentHandle = async (event) => {
+    event.preventDefault();
+    console.log("test");
+
+    try {
+      await axios
+        .post(
+          `https://project-2-api.herokuapp.com/videos/${videoDetails.id}/comments?api_key=${key}`,
+          {
+            name: "Mohan Muruge",
+            comment: text,
+          }
+        )
+        .then(() => {
+          setText("");
+        })
+        .then(() => {
+          getVideoDetails(videoDetails.id);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -53,14 +76,14 @@ const Home = () => {
         } else {
           getVideoDetails(videoId);
         }
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        console.log(error);
       }
     }
   }, [videoSmallList, videoId]);
 
   if (!videoSmallList || !videoDetails) {
-    return <h1>LOADING!!!!!!!!!</h1>;
+    return <h1>LOADING!!!!!!!</h1>;
   }
 
   return (
@@ -69,7 +92,11 @@ const Home = () => {
       <div className="home__wrapper">
         <div className="home__vid-desc-wrapper">
           <VideoDescription currentdescription={videoDetails} />
-          <AddComment text={text} changeText={changeText} />
+          <AddComment
+            addComment={addCommentHandle}
+            text={text}
+            changeText={changeText}
+          />
           <Comments currentcomments={videoDetails} />
         </div>
         <VideoList
@@ -80,4 +107,5 @@ const Home = () => {
     </>
   );
 };
+
 export default Home;

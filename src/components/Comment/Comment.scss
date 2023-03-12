@@ -10,6 +10,7 @@
     border-top: solid 0.1rem $secondary-three;
     border-bottom: solid 0.1rem $secondary-three;
     margin: auto;
+    width: 100%;
     @include tablet {
       width: 90%;
     }
