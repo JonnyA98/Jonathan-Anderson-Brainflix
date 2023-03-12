@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Upload = () => {
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
+  const [componentClass, setComponentClass] = useState(true);
 
   const descriptionHandler = (newDescription) => {
     setDescription(newDescription);
@@ -24,22 +25,27 @@ const Upload = () => {
   const uploadHandler = (e) => {
     e.preventDefault();
     if (uploadVideoDetails) {
+      setComponentClass(false);
       setTimeout(() => {
         navigate("/");
       }, 2000);
     }
   };
 
-  return (
-    <UploadForm
-      className="upload"
-      uploadHandler={uploadHandler}
-      title={title}
-      titleHandler={titleHandler}
-      description={description}
-      descriptionHandler={descriptionHandler}
-    />
-  );
+  if (componentClass) {
+    return (
+      <UploadForm
+        className="upload"
+        uploadHandler={uploadHandler}
+        title={title}
+        titleHandler={titleHandler}
+        description={description}
+        descriptionHandler={descriptionHandler}
+      />
+    );
+  } else {
+    return <UploadComplete />;
+  }
 };
 
 export default Upload;
