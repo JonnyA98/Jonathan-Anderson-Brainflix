@@ -1,9 +1,16 @@
 import "./UploadForm.scss";
 import image from "../../assets/images/Upload-video-preview.jpg";
 import { Link } from "react-router-dom";
-const UploadForm = ({ description, descriptionHandler }) => {
+
+const UploadForm = ({
+  title,
+  titleHandler,
+  description,
+  descriptionHandler,
+  uploadHandler,
+}) => {
   return (
-    <form className="upload-form">
+    <form onSubmit={uploadHandler} className="upload-form">
       <div className="upload-form__header-wrapper">
         <h1 className="upload-form__header">Upload Video</h1>
       </div>
@@ -21,6 +28,8 @@ const UploadForm = ({ description, descriptionHandler }) => {
             name="title"
             type="text"
             placeholder="Add a title to your video"
+            value={title}
+            onChange={(e) => titleHandler(e.target.value)}
           />
           <label className="upload-form__mini-header" htmlFor="description">
             Add a video description
@@ -30,6 +39,7 @@ const UploadForm = ({ description, descriptionHandler }) => {
             name="description"
             cols="30"
             rows="5"
+            placeholder="Add a description to your video"
             value={description}
             onChange={(e) => descriptionHandler(e.target.value)}
           ></textarea>
@@ -39,6 +49,7 @@ const UploadForm = ({ description, descriptionHandler }) => {
         <button type="submit" className="upload-form__button">
           Publish
         </button>
+
         <Link className="upload-form__cancel" to={`/`}>
           <h3 className="upload-form__cancel-text">Cancel</h3>
         </Link>
