@@ -12,11 +12,19 @@ import "./Home.scss";
 const Home = () => {
   const key = "4cc34eef-8f4a-4587-ad97-0594e067e347";
 
-  const [text, setText] = useState("");
-  const [textClass, setTextClass] = useState("add-comment__text");
-  const [textPlaceholder, setTextPlaceHolder] = useState("Add a new comment");
+  // const [text, setText] = useState("");
+  // const [textClass, setTextClass] = useState("add-comment__text");
+  // const [textPlaceholder, setTextPlaceHolder] = useState("Add a new comment");
+
+  const [commentFields, setCommentFields] = useState({
+    text: "",
+    textClass: "add-comment__text",
+    textPlaceholder: "Add a new comment",
+  });
+
   const changeText = (newText) => {
-    setText(newText);
+    // setText(newText);
+    setCommentFields({ ...commentFields, text: newText });
   };
 
   const { videoId } = useParams();
@@ -40,21 +48,26 @@ const Home = () => {
 
   const addCommentHandle = async (event) => {
     event.preventDefault();
-<<<<<<< HEAD
-    if (text) {
+    if (commentFields.text) {
       try {
         await axios
           .post(
             `https://project-2-api.herokuapp.com/videos/${videoDetails.id}/comments?api_key=${key}`,
             {
               name: "Mohan Muruge",
-              comment: text,
+              comment: commentFields.text,
             }
           )
           .then(() => {
-            setText("");
-            setTextPlaceHolder("Add a new comment");
-            setTextClass("add-comment__text");
+            setCommentFields({
+              ...commentFields,
+              text: "",
+              textPlaceholder: "Add a new comment",
+              textClass: "add-comment__text",
+            });
+
+            // setText("");
+            // setTextPlaceHolder("Add a new comment");
           })
           .then(() => {
             getVideoDetails(videoDetails.id);
@@ -63,28 +76,11 @@ const Home = () => {
         console.log(error);
       }
     } else {
-      setTextPlaceHolder("You can't leave this empty!");
-      setTextClass("add-comment__text add-comment__text--invalid");
-=======
-
-    try {
-      await axios
-        .post(
-          `https://project-2-api.herokuapp.com/videos/${videoDetails.id}/comments?api_key=${key}`,
-          {
-            name: "Mohan Muruge",
-            comment: text,
-          }
-        )
-        .then(() => {
-          setText("");
-        })
-        .then(() => {
-          getVideoDetails(videoDetails.id);
-        });
-    } catch (error) {
-      console.log(error);
->>>>>>> main
+      setCommentFields({
+        ...commentFields,
+        textClass: "add-comment__text add-comment__text--invalid",
+        textPlaceholder: "You can't leave this empty!",
+      });
     }
   };
 
@@ -122,10 +118,10 @@ const Home = () => {
           <VideoDescription currentdescription={videoDetails} />
           <AddComment
             addComment={addCommentHandle}
-            text={text}
+            text={commentFields.text}
             changeText={changeText}
-            textPlaceholder={textPlaceholder}
-            textClass={textClass}
+            textPlaceholder={commentFields.textPlaceholder}
+            textClass={commentFields.textClass}
           />
           <Comments currentcomments={videoDetails} />
         </div>
