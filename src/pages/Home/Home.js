@@ -12,10 +12,6 @@ import "./Home.scss";
 const Home = () => {
   const key = "4cc34eef-8f4a-4587-ad97-0594e067e347";
 
-  // const [text, setText] = useState("");
-  // const [textClass, setTextClass] = useState("add-comment__text");
-  // const [textPlaceholder, setTextPlaceHolder] = useState("Add a new comment");
-
   const [commentFields, setCommentFields] = useState({
     text: "",
     textClass: "add-comment__text",
@@ -23,7 +19,6 @@ const Home = () => {
   });
 
   const changeText = (newText) => {
-    // setText(newText);
     setCommentFields({ ...commentFields, text: newText });
   };
 
@@ -65,9 +60,6 @@ const Home = () => {
               textPlaceholder: "Add a new comment",
               textClass: "add-comment__text",
             });
-
-            // setText("");
-            // setTextPlaceHolder("Add a new comment");
           })
           .then(() => {
             getVideoDetails(videoDetails.id);
