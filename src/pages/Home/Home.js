@@ -40,7 +40,6 @@ const Home = () => {
 
   const addCommentHandle = async (event) => {
     event.preventDefault();
-<<<<<<< HEAD
     if (text) {
       try {
         await axios
@@ -65,26 +64,6 @@ const Home = () => {
     } else {
       setTextPlaceHolder("You can't leave this empty!");
       setTextClass("add-comment__text add-comment__text--invalid");
-=======
-
-    try {
-      await axios
-        .post(
-          `https://project-2-api.herokuapp.com/videos/${videoDetails.id}/comments?api_key=${key}`,
-          {
-            name: "Mohan Muruge",
-            comment: text,
-          }
-        )
-        .then(() => {
-          setText("");
-        })
-        .then(() => {
-          getVideoDetails(videoDetails.id);
-        });
-    } catch (error) {
-      console.log(error);
->>>>>>> main
     }
   };
 
