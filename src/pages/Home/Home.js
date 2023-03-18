@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, CSSProperties } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
 import CurrentVideo from "../../components/CurrentVideo/CurrentVideo";
 import VideoDescription from "../../components/VideoDescription/VideoDescription";
@@ -9,10 +10,18 @@ import VideoList from "../../components/VideoList/VideoList";
 
 import "./Home.scss";
 
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#0065ad",
+};
+
 const Home = () => {
   const [text, setText] = useState("");
   const [textClass, setTextClass] = useState("add-comment__text");
   const [textPlaceholder, setTextPlaceHolder] = useState("Add a new comment");
+  let [loading] = useState(true);
+  let [color] = useState("#0095ff");
   const changeText = (newText) => {
     setText(newText);
   };
@@ -79,10 +88,21 @@ const Home = () => {
         console.log(error);
       }
     }
-  }, [videoSmallList, videoId]);
+  }, [videoId, videoSmallList]);
 
   if (!videoSmallList || !videoDetails) {
-    return <h1>LOADING!!!!!!!</h1>;
+    return (
+      <div className="home__spinner-wrapper">
+        <ClipLoader
+          color={color}
+          loading={loading}
+          cssOverride={override}
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
   }
 
   return (

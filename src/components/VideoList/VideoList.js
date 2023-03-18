@@ -6,6 +6,8 @@ const VideoList = ({ videoSmallList, currentvideo }) => {
   let currentVideoList = videoSmallList.filter((video) => {
     if (video.id !== currentvideo.id) {
       return video;
+    } else {
+      return null;
     }
   });
 
