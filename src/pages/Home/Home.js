@@ -10,8 +10,6 @@ import VideoList from "../../components/VideoList/VideoList";
 import "./Home.scss";
 
 const Home = () => {
-  const key = "4cc34eef-8f4a-4587-ad97-0594e067e347";
-
   const [text, setText] = useState("");
   const [textClass, setTextClass] = useState("add-comment__text");
   const [textPlaceholder, setTextPlaceHolder] = useState("Add a new comment");
@@ -25,17 +23,14 @@ const Home = () => {
   const [videoDetails, setvideoDetails] = useState(null);
 
   const getVideoList = async () => {
-    const { data } = await axios.get(
-      `https://project-2-api.herokuapp.com/videos/?api_key=${key}`
-    );
+    const { data } = await axios.get(`http://localhost:8080/videos`);
     setVideoSmallList(data);
   };
 
   const getVideoDetails = async (id) => {
-    const { data } = await axios.get(
-      `https://project-2-api.herokuapp.com/videos/${id}?api_key=${key}`
-    );
+    const { data } = await axios.get(`http://localhost:8080/videos/${id}`);
     setvideoDetails(data);
+    console.log(videoDetails);
   };
 
   const addCommentHandle = async (event) => {
@@ -43,13 +38,10 @@ const Home = () => {
     if (text) {
       try {
         await axios
-          .post(
-            `https://project-2-api.herokuapp.com/videos/${videoDetails.id}/comments?api_key=${key}`,
-            {
-              name: "Mohan Muruge",
-              comment: text,
-            }
-          )
+          .post(`http://localhost:8080/videos/${videoDetails.id}/comments`, {
+            name: "Mohan Muruge",
+            comment: text,
+          })
           .then(() => {
             setText("");
             setTextPlaceHolder("Add a new comment");
@@ -70,8 +62,8 @@ const Home = () => {
   useEffect(() => {
     try {
       getVideoList();
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   }, []);
 

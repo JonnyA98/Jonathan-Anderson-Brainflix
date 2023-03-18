@@ -41,11 +41,11 @@ const Upload = () => {
     if (uploadVideoDetails) {
       try {
         await axios
-          .post(`${process.env.BACKEND_URL}/videos`, {
+          .post(`http://localhost:8080/videos/`, {
             title: title,
             channel: "Mohan Muruge",
             description: description,
-            image: `${process.env.BACKEND_URL}/public/images/Upload-video-preview.jpg`,
+            image: `http://localhost:8080/images/Upload-video-preview.jpg`,
             duration: "10:45",
           })
 
