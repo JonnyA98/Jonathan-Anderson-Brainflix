@@ -16,6 +16,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url(../../assets/font/AvenirNextLTPro-Demi.otf) format("opentype"),
+    url(../../assets/font/Alternative-files/AvenirNextLTProDemi.ttf)
+      format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
 *,
 ::before,
 ::after {
