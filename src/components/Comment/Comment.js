@@ -8,7 +8,7 @@ const Comment = ({ comment, name, date }) => {
   const momentTest = moment(newDate, "YYYYMMDD").fromNow();
 
   return (
-    <div className="comments__comment">
+    <article className="comments__comment">
       <div className="comments__icon"></div>
       <div className="comments__text">
         <div className="comments__first-line">
@@ -17,7 +17,7 @@ const Comment = ({ comment, name, date }) => {
         </div>
         <p className="comments__copy">{comment}</p>
       </div>
-    </div>
+    </article>
   );
 };
 

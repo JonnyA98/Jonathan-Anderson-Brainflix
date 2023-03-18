@@ -2,7 +2,7 @@ import "./SmallVideo.scss";
 
 const SmallVideo = ({ picture, title, name, clickHandler }) => {
   return (
-    <div className="small-video" onClick={clickHandler}>
+    <article className="small-video" onClick={clickHandler}>
       <div className="small-video__img-wrapper">
         <img className="small-video__image" src={picture} alt={name} />
       </div>
@@ -10,7 +10,7 @@ const SmallVideo = ({ picture, title, name, clickHandler }) => {
         <h3 className="small-video__title">{title}</h3>
         <p className="small-video__creator">{name}</p>
       </div>
-    </div>
+    </article>
   );
 };
 

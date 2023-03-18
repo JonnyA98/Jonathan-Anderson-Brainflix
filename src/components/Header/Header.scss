@@ -35,6 +35,7 @@
     background: url(../../assets/icons/search.svg) no-repeat 1rem 50%;
     padding-left: 4rem;
     background-color: rgba(225, 225, 225, 0.5);
+    border: solid 0.1rem $primary-three;
     width: 90%;
     margin: 0 1rem;
     @include tablet {
