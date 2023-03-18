@@ -1,5 +1,6 @@
 import { useState, useEffect, CSSProperties } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
+import { DotLoader } from "react-spinners";
+
 import axios from "axios";
 import CurrentVideo from "../../components/CurrentVideo/CurrentVideo";
 import VideoDescription from "../../components/VideoDescription/VideoDescription";
@@ -39,7 +40,6 @@ const Home = () => {
   const getVideoDetails = async (id) => {
     const { data } = await axios.get(`http://localhost:8080/videos/${id}`);
     setvideoDetails(data);
-    console.log(videoDetails);
   };
 
   const addCommentHandle = async (event) => {
@@ -93,13 +93,11 @@ const Home = () => {
   if (!videoSmallList || !videoDetails) {
     return (
       <div className="home__spinner-wrapper">
-        <ClipLoader
+        <DotLoader
           color={color}
           loading={loading}
           cssOverride={override}
           size={150}
-          aria-label="Loading Spinner"
-          data-testid="loader"
         />
       </div>
     );
