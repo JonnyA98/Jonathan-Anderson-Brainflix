@@ -17,21 +17,12 @@ const override: CSSProperties = {
   borderColor: "#0065ad",
 };
 
-<<<<<<< HEAD
-  const [commentFields, setCommentFields] = useState({
-    text: "",
-    textClass: "add-comment__text",
-    textPlaceholder: "Add a new comment",
-  });
-
-=======
 const Home = () => {
   const [text, setText] = useState("");
   const [textClass, setTextClass] = useState("add-comment__text");
   const [textPlaceholder, setTextPlaceHolder] = useState("Add a new comment");
   let [loading] = useState(true);
   let [color] = useState("#0095ff");
->>>>>>> develop
   const changeText = (newText) => {
     setCommentFields({ ...commentFields, text: newText });
   };
@@ -53,18 +44,6 @@ const Home = () => {
 
   const addCommentHandle = async (event) => {
     event.preventDefault();
-<<<<<<< HEAD
-    if (commentFields.text) {
-      try {
-        await axios
-          .post(
-            `https://project-2-api.herokuapp.com/videos/${videoDetails.id}/comments?api_key=${key}`,
-            {
-              name: "Mohan Muruge",
-              comment: commentFields.text,
-            }
-          )
-=======
     if (text) {
       try {
         await axios
@@ -72,7 +51,6 @@ const Home = () => {
             name: "Mohan Muruge",
             comment: text,
           })
->>>>>>> develop
           .then(() => {
             setCommentFields({
               ...commentFields,
@@ -88,16 +66,11 @@ const Home = () => {
         console.log(error);
       }
     } else {
-<<<<<<< HEAD
       setCommentFields({
         ...commentFields,
         textClass: "add-comment__text add-comment__text--invalid",
         textPlaceholder: "You can't leave this empty!",
       });
-=======
-      setTextPlaceHolder("You can't leave this empty!");
-      setTextClass("add-comment__text add-comment__text--invalid");
->>>>>>> develop
     }
   };
 
