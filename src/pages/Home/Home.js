@@ -24,7 +24,7 @@ const Home = () => {
   let [loading] = useState(true);
   let [color] = useState("#0095ff");
   const changeText = (newText) => {
-    setCommentFields({ ...commentFields, text: newText });
+    setText(newText);
   };
 
   const { videoId } = useParams();
@@ -52,12 +52,9 @@ const Home = () => {
             comment: text,
           })
           .then(() => {
-            setCommentFields({
-              ...commentFields,
-              text: "",
-              textPlaceholder: "Add a new comment",
-              textClass: "add-comment__text",
-            });
+            setText("");
+            setTextPlaceHolder("Add a new comment");
+            setTextClass("add-comment__text");
           })
           .then(() => {
             getVideoDetails(videoDetails.id);
@@ -66,11 +63,8 @@ const Home = () => {
         console.log(error);
       }
     } else {
-      setCommentFields({
-        ...commentFields,
-        textClass: "add-comment__text add-comment__text--invalid",
-        textPlaceholder: "You can't leave this empty!",
-      });
+      setTextPlaceHolder("You can't leave this empty!");
+      setTextClass("add-comment__text add-comment__text--invalid");
     }
   };
 
@@ -117,10 +111,10 @@ const Home = () => {
           <VideoDescription currentdescription={videoDetails} />
           <AddComment
             addComment={addCommentHandle}
-            text={commentFields.text}
+            text={text}
             changeText={changeText}
-            textPlaceholder={commentFields.textPlaceholder}
-            textClass={commentFields.textClass}
+            textPlaceholder={textPlaceholder}
+            textClass={textClass}
           />
           <Comments currentcomments={videoDetails} />
         </div>
