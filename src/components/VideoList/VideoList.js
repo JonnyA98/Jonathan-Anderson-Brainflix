@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import "./VideoList.scss";
 
 const VideoList = ({ videoSmallList, currentvideo }) => {
-  let currentVideoList = [];
-  videoSmallList.forEach((video) => {
+  let currentVideoList = videoSmallList.filter((video) => {
     if (video.id !== currentvideo.id) {
-      currentVideoList.push(video);
+      return video;
+    } else {
+      return null;
     }
   });
+
   return (
     <div className="video-list">
       <h3 className="video-list__header">Next Videos</h3>

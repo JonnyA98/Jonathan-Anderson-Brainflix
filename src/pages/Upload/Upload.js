@@ -1,6 +1,7 @@
 import UploadForm from "../../components/UploadForm/UploadForm";
 import UploadComplete from "../../components/UploadComplete/UploadComplete";
 import "./Upload.scss";
+import axios from "axios";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -35,13 +36,28 @@ const Upload = () => {
     uploadVideoDetails = true;
   }
 
-  const uploadHandler = (e) => {
+  const uploadHandler = async (e) => {
     e.preventDefault();
     if (uploadVideoDetails) {
-      setComponentClass(false);
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
+      try {
+        await axios
+          .post(`http://localhost:8080/videos/`, {
+            title: title,
+            channel: "Mohan Muruge",
+            description: description,
+            image: `http://localhost:8080/images/Upload-video-preview.jpg`,
+            duration: "10:45",
+          })
+
+          .then(() => {
+            setComponentClass(false);
+            setTimeout(() => {
+              navigate("/");
+            }, 2000);
+          });
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       setValidationTitleClass("upload-form__input upload-form__input--invalid");
       setValidationDescriptionClass(

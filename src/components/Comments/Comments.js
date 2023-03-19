@@ -3,6 +3,9 @@ import Comment from "../Comment/Comment";
 
 const Comments = ({ currentcomments }) => {
   const commentsArray = currentcomments.comments;
+  commentsArray.sort((commentA, commentB) => {
+    return commentB.timestamp - commentA.timestamp;
+  });
 
   return (
     <div className="comments">

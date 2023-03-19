@@ -2,6 +2,14 @@
 @use "../../styles/partials/variabls" as *;
 
 .home {
+  position: relative;
+  &__spinner-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 20rem;
+  }
   &__wrapper {
     @include desktop {
       display: flex;

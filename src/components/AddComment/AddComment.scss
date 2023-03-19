@@ -35,6 +35,10 @@
       position: relative;
       bottom: 2rem;
     }
+    @include desktop {
+      position: relative;
+      right: 4rem;
+    }
   }
 
   &__header {
@@ -49,9 +53,13 @@
     background-color: rgba($primary-three, 0.1);
     border-radius: 2%;
     width: 100%;
+    border: solid 0.1rem $primary-three;
     @include tablet {
       height: 5rem;
       width: 150%;
+    }
+    @include desktop {
+      width: 175%;
     }
 
     &--invalid {
@@ -76,6 +84,12 @@
       min-width: 15rem;
       width: 30%;
       margin: 0;
+    }
+    @include desktop {
+      width: 27%;
+      position: relative;
+      left: 3rem;
+      padding-left: 3rem;
     }
   }
 }

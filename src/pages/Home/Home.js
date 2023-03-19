@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, CSSProperties } from "react";
+import { DotLoader } from "react-spinners";
+
 import axios from "axios";
 import CurrentVideo from "../../components/CurrentVideo/CurrentVideo";
 import VideoDescription from "../../components/VideoDescription/VideoDescription";
@@ -9,15 +11,27 @@ import VideoList from "../../components/VideoList/VideoList";
 
 import "./Home.scss";
 
-const Home = () => {
-  const key = "4cc34eef-8f4a-4587-ad97-0594e067e347";
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#0065ad",
+};
 
+<<<<<<< HEAD
   const [commentFields, setCommentFields] = useState({
     text: "",
     textClass: "add-comment__text",
     textPlaceholder: "Add a new comment",
   });
 
+=======
+const Home = () => {
+  const [text, setText] = useState("");
+  const [textClass, setTextClass] = useState("add-comment__text");
+  const [textPlaceholder, setTextPlaceHolder] = useState("Add a new comment");
+  let [loading] = useState(true);
+  let [color] = useState("#0095ff");
+>>>>>>> develop
   const changeText = (newText) => {
     setCommentFields({ ...commentFields, text: newText });
   };
@@ -28,21 +42,18 @@ const Home = () => {
   const [videoDetails, setvideoDetails] = useState(null);
 
   const getVideoList = async () => {
-    const { data } = await axios.get(
-      `https://project-2-api.herokuapp.com/videos/?api_key=${key}`
-    );
+    const { data } = await axios.get(`http://localhost:8080/videos`);
     setVideoSmallList(data);
   };
 
   const getVideoDetails = async (id) => {
-    const { data } = await axios.get(
-      `https://project-2-api.herokuapp.com/videos/${id}?api_key=${key}`
-    );
+    const { data } = await axios.get(`http://localhost:8080/videos/${id}`);
     setvideoDetails(data);
   };
 
   const addCommentHandle = async (event) => {
     event.preventDefault();
+<<<<<<< HEAD
     if (commentFields.text) {
       try {
         await axios
@@ -53,6 +64,15 @@ const Home = () => {
               comment: commentFields.text,
             }
           )
+=======
+    if (text) {
+      try {
+        await axios
+          .post(`http://localhost:8080/videos/${videoDetails.id}/comments`, {
+            name: "Mohan Muruge",
+            comment: text,
+          })
+>>>>>>> develop
           .then(() => {
             setCommentFields({
               ...commentFields,
@@ -68,19 +88,24 @@ const Home = () => {
         console.log(error);
       }
     } else {
+<<<<<<< HEAD
       setCommentFields({
         ...commentFields,
         textClass: "add-comment__text add-comment__text--invalid",
         textPlaceholder: "You can't leave this empty!",
       });
+=======
+      setTextPlaceHolder("You can't leave this empty!");
+      setTextClass("add-comment__text add-comment__text--invalid");
+>>>>>>> develop
     }
   };
 
   useEffect(() => {
     try {
       getVideoList();
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   }, []);
 
@@ -96,10 +121,19 @@ const Home = () => {
         console.log(error);
       }
     }
-  }, [videoSmallList, videoId]);
+  }, [videoId, videoSmallList]);
 
   if (!videoSmallList || !videoDetails) {
-    return <h1>LOADING!!!!!!!</h1>;
+    return (
+      <div className="home__spinner-wrapper">
+        <DotLoader
+          color={color}
+          loading={loading}
+          cssOverride={override}
+          size={150}
+        />
+      </div>
+    );
   }
 
   return (
